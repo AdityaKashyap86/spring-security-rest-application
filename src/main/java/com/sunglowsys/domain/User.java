@@ -1,7 +1,7 @@
 package com.sunglowsys.domain;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
+
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Objects;
@@ -16,15 +16,13 @@ public class User {
     @Column(name = "id")
     private Long id;
 
-
+    @NotNull
     @Column(name = "username", nullable = false)
     private String username;
 
-
+    @NotNull
     @Column(name = "password", unique = true, nullable = false)
     private String password;
-
-
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
